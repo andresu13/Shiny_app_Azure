@@ -15,9 +15,8 @@ RUN apt-get update && apt-get install -y \
 # Download and install ShinyServer (latest version)
 RUN wget --no-verbose https://s3.amazonaws.com/rstudio-shiny-server-os-build/ubuntu-12.04/x86_64/VERSION -O "version.txt" && \
     VERSION=$(cat version.txt)  && \
-    wget --no-verbose "https://s3.amazonaws.com/rstudio-shiny-server-os-build/ubuntu-12.04/x86_64/shiny-server-$VERSION-
-amd64.deb" -O ss-latest.deb && \
-    gdebi -n ss-latest.deb && \
+    wget --no-verbose "https://s3.amazonaws.com/rstudio-shiny-server-os-build/ubuntu-12.04/x86_64/shiny-server-$VERSION-amd64.deb" -O ss-latest.deb && \
+   gdebi -n ss-latest.deb && \
     rm -f version.txt ss-latest.deb
 
 # Install R packages that are required
