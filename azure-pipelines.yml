@@ -16,7 +16,7 @@ steps:
 - script: |
           docker build -f Dockerfile -t $(imageName) .
           docker login dockerandresu13.azurecr.io
-          docker push dockerandresu13.azurecr.io/$(imageName)
+          docker push $(imageName)
   displayName: 'docker build and push'
 
 
