@@ -7,17 +7,22 @@ trigger:
 - master
 
 pool:
-  vmImage: 'Ubuntu-16.04'
+  vmImage: Ubuntu-16.04
 
 variables:
-  imageName: 'shinyapp:$(build.buildId)'
+  imageName: shinyapp:$(build.buildId)
+  dockerId: dockerandresu13
+  dockerPassword: a7Ha82v7tXi+ZWLfxT3ZuCEE19ffs82p
 
 steps: 
 - script: |
           docker build -f Dockerfile -t $(imageName) .
-          docker login dockerandresu13.azurecr.io
+          docker login -u $(dockerId) -p $(pswd) $(dockerId).azurecr.io
           docker push $(imageName)
   displayName: 'docker build and push'
+  env:
+    pswd: $(dockerPassword)
+    # Define dockerPassword in the Variables tab of this pipeline in Pipelines page of web interface
 
 
 
