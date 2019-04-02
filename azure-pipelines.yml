@@ -16,7 +16,9 @@ variables:
 
 steps: 
 - script: |
+          docker build -f Dockerfile -t $(imageName) .
           docker login -u dockerandresu13 -p a7Ha82v7tXi+ZWLfxT3ZuCEE19ffs82p dockerandresu13.azurecr.io
+          docker push $(imageName)
           
   displayName: 'docker build and push'
   env:
