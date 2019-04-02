@@ -16,13 +16,15 @@ variables:
 
 steps: 
 - script: |
-          docker login -u $(dockerId) -p $(pswd) $(dockerId).azurecr.io
-          docker push $(imageName)
+          docker login -u dockerandresu13 -p a7Ha82v7tXi+ZWLfxT3ZuCEE19ffs82p dockerandresu13.azurecr.io
+          
   displayName: 'docker build and push'
   env:
     pswd: $(dockerPassword)
     # docker build -f Dockerfile -t $(imageName) .
-    # 
+    # docker login -u $(dockerId) -p $(pswd) $(dockerId).azurecr.io
+    # docker push $(imageName)
+    
     # Define dockerPassword in the Variables tab of this pipeline in Pipelines page of web interface
 
 
