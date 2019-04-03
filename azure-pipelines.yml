@@ -10,7 +10,7 @@ pool:
   vmImage: Ubuntu-16.04
 
 variables:
-  imageName: shinyapp:$(build.buildId)
+  imageName: shinyapp
   dockerId: dockerandresu13
   dockerPassword: a7Ha82v7tXi+ZWLfxT3ZuCEE19ffs82p
 
@@ -27,6 +27,7 @@ steps:
     # docker build -f Dockerfile -t $(imageName) .
     # docker login -u $(dockerId) -p $(pswd) $(dockerId).azurecr.io
     # docker push $(imageName)
+    # :$(build.buildId)
     
     # Define dockerPassword in the Variables tab of this pipeline in Pipelines page of web interface
 
